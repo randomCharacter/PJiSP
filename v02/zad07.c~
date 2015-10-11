@@ -44,7 +44,7 @@ int main() {
 			break;
 		//Pogrešan karakter
 		default:
-			printf("Pogresna operacija!\n");			
+			printf("Pogresna operacija!žn");			
 	}
 
 	return 0;
