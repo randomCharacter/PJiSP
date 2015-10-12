@@ -30,14 +30,14 @@ int main()
 	m = 0;
 	for (i = 0; i < n; i++) {
 		if ((C[i] >= 'a' && C[i] <= 'z') || (C[i] >= 'A' && C[i] <= 'Z')) {
-			A[j] = C[i];
+			A[m] = C[i];
 			++m;	
 		}
 	}
 
 	//Ispis rezultata
 	for (j = 0; j < m; j++) {
-		printf("%c", C[j]);
+		printf("%c", A[j]);
 	}
 
 	printf("\n");
