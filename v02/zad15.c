@@ -7,29 +7,32 @@
 
 #include <stdio.h>
 #include <math.h>
+#define MAX 20
 
 int main() 
-{
+{	
+	float p[MAX];
 	int n,i;
-	float p[20];
+	float max; //Maksimalni element niza
 
-	printf("Broj clanova niza:\n");
+	printf("Broj clanova niza: ");
 	scanf("%d", &n);
 
+	//Učitavanje niza
 	printf("Unesite clanove niza:\n");
-	for (i = 0; i < n; i++)    			//Ucitavamo niz
+	for (i = 0; i < n; i++)
 		scanf("%f", &p[i]);
 
 	
-	float max = p[0];		//Pamtimo maximalnu vrednost niza
+	max = p[0];		//Proglasimo prvi element za maksimum
 
-	for (i = 1; i < n; i++)  //Proveravamo za svaki clan niza 
-		if (p[i] > max)		 //da li je veci od trenutnog maximuma
+	//Tražimo novi maksimum u nizu
+	for (i = 1; i < n; i++)
+		if (p[i] > max)
 			max = p[i];
 	
-
+	//Ispis rezultata
 	printf("Maximalan element niza je: %.3f\n", max);
-
 
 	return 0;
 }

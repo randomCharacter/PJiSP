@@ -8,29 +8,33 @@
 
 #include <stdio.h>
 #include <math.h>
+#define MAX 30
 
 int main() 
 {
-	int n,i;
-	int p[30];
-
-	printf("Broj clanova niza:\n");
+	int p[MAX];
+	int n;
+	int i;
+	int br, rez; //Broj i broj pojavljivanja tog broja u nizu
+	
+	printf("Broj clanova niza: ");
 	scanf("%d", &n);
 
+	//Učitavanje niza
 	printf("Unesite clanove niza:\n");
-	for (i = 0; i < n; i++)    			//Ucitavamo niz
+	for (i = 0; i < n; i++)
 		scanf("%d", &p[i]);
 
 	printf("Broj koji trazimo:\n");
-	int br;
 	scanf("%d", &br);
 	
-	int rez = 0;		//Pamtimo broj pojavljivanja br u nizu
+	rez = 0; //Postavljamo broj pojavljivanja na 0
 
-	for (i = 0; i < n; i++)
-		if (p[i] == br)
+	for (i = 0; i < n; i++) {
+		if (p[i] == br) {
 			rez++;
-
+		}
+	}
 	printf("Broj %d se pojavljuje %d puta u nizu A=[", br,rez);
 	
 	for (i = 0; i < n; i++)
