@@ -31,7 +31,7 @@ int main()
 	for (i = 0; i < n; i++) {
 		if ((C[i] >= 'a' && C[i] <= 'z') || (C[i] >= 'A' && C[i] <= 'Z')) {
 			A[m] = C[i];
-			m++;	
+			m++; //Pomera index na sledeći član
 		}
 	}
 
