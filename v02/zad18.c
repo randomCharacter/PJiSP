@@ -45,7 +45,7 @@ int main() {
 	}
 
 	//Ispis traženog elementa
-	printf("Najblizi element je: %d\n", min);
+	printf("Najblizi element je: %d\n", A[min]);
 
 	return 0;
 }
