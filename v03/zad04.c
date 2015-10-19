@@ -36,7 +36,7 @@ int main() {
 	//Ispis matrice
 	for (i = 0; i < n; i++) {
 		for (j = 0; j < n; j++) {
-			printf("%d ", A[i][j]);
+			printf("%.2lf ", A[i][j]);
 		}
 		printf("\n");
 	}
