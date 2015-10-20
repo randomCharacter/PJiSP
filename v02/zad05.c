@@ -26,7 +26,7 @@ int main() {
 	c = sqrt(pow(Ax - Bx, 2) + pow(Ay - By, 2));
 	//Računanje površine po Heronovom obrascu (v01/zad01)
 	s = (a + b + c) / 2;
-	P = sqrt(s * (s - a) * (s - b) * (s - c));
+	P = sqrt(s * (s - a) * (s - b) * (s - c)) * 2;
 
 	printf("P=%.2lf\n", P);
 
