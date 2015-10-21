@@ -29,6 +29,7 @@ int main() {
 		//system("clear");
 		printf("    Opcije:\n\t1. Unos elemenata niza.\n\t2. Izracunavanje sume\n\t3. Racunanje srednje vrednosti\n\t4. Ispis niza\n\t5. Nalazenje maksimalnog elementa niza\n\t6. Nalazenje minimalnog elementa niza\n\t7. Izlaz iz programa\n\t>> ");
 		scanf("%d", &k);
+		printf("%d", n);
 		switch (k) {
 			case 1 : 
 				unosNiza(a, &n);
