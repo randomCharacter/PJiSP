@@ -26,7 +26,6 @@ int main() {
 			
 	//Ispis i interakcija sa menijem
 	do {
-		//system("clear");
 		printf("    Opcije:\n\t1. Unos elemenata niza.\n\t2. Izracunavanje sume\n\t3. Racunanje srednje vrednosti\n\t4. Ispis niza\n\t5. Nalazenje maksimalnog elementa niza\n\t6. Nalazenje minimalnog elementa niza\n\t7. Izlaz iz programa\n\t>> ");
 		scanf("%d", &k);
 		switch (k) {
@@ -52,7 +51,6 @@ int main() {
 				if (k != 7) { //7 je komanda za izlaz
 					printf("Nepoznata komanda!!!\n");
 				}
-				scanf("");
 		}
 	} while (k != 7); //Izlaz na uneto 7
 

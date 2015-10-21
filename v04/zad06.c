@@ -10,21 +10,7 @@
 #include <stdio.h>
 #include <math.h>
 
-//Vraća 1 ako je prost, 0 ako nije
-//Videti v04/zad05.c za detaljnije objašnjenje
-int prost(int n) {
-	int p;
-	int i;
-
-	p = 1; 
-	for (i = 2; i <= sqrt(n); i++) { 
-		if (n % i == 0) {
-			p = 0; 
-		}
-	}
-
-	return p;
-}
+int prost(int);
 
 int main() {
 	int n;
@@ -42,4 +28,20 @@ int main() {
 	}
 
 	return 0;
+}
+
+//Vraća 1 ako je prost, 0 ako nije
+//Videti v04/zad05.c za detaljnije objašnjenje
+int prost(int n) {
+	int p;
+	int i;
+
+	p = 1; 
+	for (i = 2; i <= sqrt(n); i++) { 
+		if (n % i == 0) {
+			p = 0; 
+		}
+	}
+
+	return p;
 }

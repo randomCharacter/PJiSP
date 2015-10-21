@@ -13,9 +13,7 @@
 #include <stdio.h>
 
 //Proverava da li je godina prestupna
-int prestupna (int x) {
-	return (x % 4 == 0) && (x % 100 != 0 || x % 400 == 0);
-}
+int prestupna (int);
 
 int main() {
 	int n, m;
@@ -32,4 +30,8 @@ int main() {
 			printf("%d je prestupna\n", i);
 
 	return 0;
+}
+
+int prestupna (int x) {
+	return (x % 4 == 0) && (x % 100 != 0 || x % 400 == 0);
 }

@@ -7,12 +7,7 @@
 
 #include <stdio.h>
 
-//Vraća faktorijel unetog broja
-int faktorijel(int x) {
-	if (x == 0 || x == 1) //0! = 1! = 1
-		return 1;
-	return x * faktorijel(x - 1); //ne treba nam else pošto se sa return već izlazi metode
-}
+int faktorijel(int);
 
 int main() {
 	int j, d, s;
@@ -29,4 +24,11 @@ int main() {
 	}
 
 	return 0;
+}
+
+//Vraća faktorijel unetog broja
+int faktorijel(int x) {
+	if (x == 0 || x == 1) //0! = 1! = 1
+		return 1;
+	return x * faktorijel(x - 1); //ne treba nam else pošto se sa return već izlazi metode
 }
