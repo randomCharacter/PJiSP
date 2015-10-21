@@ -25,8 +25,8 @@ int main()
 	for (i = 0; i < n; i++)
 		scanf("%d", &x[i]);
 
-	ai = 0;  //Postavljamo prvi član kao trenutno poslednji
-	bi = 0;	 //Postavljamo prvi član kao trenutno poslednji
+	int ai = 0;  //Postavljamo prvi član kao trenutno poslednji
+	int bi = 0;	 //Postavljamo prvi član kao trenutno poslednji
 
 	//Proveravamo za svaki clan niza da li je paran i/ili negativan		
 	for (i = 0; i < n; i++)  
