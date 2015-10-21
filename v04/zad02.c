@@ -64,26 +64,30 @@ void ispis (int n, int niz[50]) {
 	printf("\n");
 }
 
-
-
-
-int main() {
-	int niz[MAX];
-	int n;
+//Učitava niz
+void ucitaj(int n, int *niz) {	
 	int i;
-
-	//Učitavanje niza 
-	do {
-		printf("Unesite duzinu niza [0<n<50]: ");
-		scanf("%d", &n);
-	} while (n < 0 || n > 50);
 	
 	//Učitavanje niza
 	printf("Unesite niz: ");
 	for(i = 0; i < n; i++)
 		scanf("%d", &niz[i]);
 	int k;
+}
 
+
+int main() {
+	int niz[MAX];
+	int n, k;
+	int i;
+	
+	do {
+		printf("Unesite duzinu niza [0<n<50]: ");
+		scanf("%d", &n);
+	} while (n < 0 || n > MAX);
+	
+	ucitaj(n, niz);
+	
 	//Ispis i interakcija sa menijem
 	do {
 		printf("\n1 - Suma\n2 - Srednja vrednost\n3 - Min\n4 - Max\n5 - Ispis\n6 - Izlaz\n>> ");
@@ -107,7 +111,7 @@ int main() {
 				break;	
 			default :
 				if (k != 6) { //6 je komanda za izlaz
-					printf("Nepoznata komanda!!!");
+					printf("Nepoznata komanda!!!\n");
 				}
 		}
 	} while (k != 6); //Izlaz na uneto 6
