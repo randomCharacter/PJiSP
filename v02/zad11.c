@@ -14,8 +14,8 @@ int main() {
 	int n;
 
 	for (s = 1; s < 10; s++) {
-		for (d = 1; d < 10; d++) {
-			for (j = 1; j < 10; j++) {
+		for (d = 0; d < 10; d++) {
+			for (j = 0; j < 10; j++) {
 				n = 100 * s + 10 * d + j;
 				if (pow(s, 3) + pow(d, 3) + pow(j, 3) == n) {
 					printf("%d\n", n);
