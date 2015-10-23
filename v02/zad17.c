@@ -16,14 +16,15 @@ int main()
 	int n, m;
 	int i, j;
 
-	printf("n= ");
-	scanf("%d", &n);
-
-	scanf("%c", &C[0]); //Handluje enter; Zanemariti
+	do {
+		printf("Broj karaktera [n<=80]: ");
+		scanf("%d", &n);
+	} while (n < 0 || n > MAX_SIZE);
+	//scanf("%c", &C[0]); //Handluje enter; Zanemariti
 	//Učitavanje niza
 	printf("Unesite niz:\n");
 	for (i = 0; i < n; i++) {
-		scanf("%c", &C[i]);
+		scanf(" %c", &C[i]); //Razmak kako bi se zanemario <Space> ili <Enter>
 	}
 
 	//Formiranje niza A
