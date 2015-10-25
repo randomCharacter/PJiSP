@@ -17,11 +17,12 @@ int main() {
 	int min, max; //Minimalni i maksimalni element
 	int minV, maxV; //Redni broj vrsta koje sadrze min i max element
 
-	printf("n=");
-	scanf("%d", &n);
-	printf("m=");
-	scanf("%d", &m);
-
+	do {
+		printf("Unesite duzinu matrice [n<10]: ");
+		scanf("%d", &n);
+		printf("Unesite sirinu matrice [m<10]: ");
+		scanf("%d", &m);
+	} while (n < 0 || n > 10 || m < 0 || m > 10);
 	//Učitavanje matrice
 	for (i = 0; i < n; i++) {
 		for (j = 0; j < m; j++) {

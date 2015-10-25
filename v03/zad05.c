@@ -38,10 +38,10 @@ int main() {
 
 	//Proces sortiranja
 	for (i = 0; i < n; i++) {
-		for (j = i; j < m; j++) {
+		for (j = i; j < n; j++) {
 			//Promene mesta kolonama
 			if (S[i] > S[j]) {
-				for (k = 0; k < n; k++) {
+				for (k = 0; k < m; k++) {
 					double t = A[i][k];
 					A[i][k] = A[j][k];
 					A[j][k] = t;
