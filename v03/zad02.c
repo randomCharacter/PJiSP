@@ -14,9 +14,11 @@ int main() {
 	int i, j;
 	int s = 0; //Suma elemenata
 
-	printf("n=");
-	scanf("%d", &n);
-
+	do {
+		printf("Unesite dimenziju kvadratne matrice [n<%d]: ", MAX);
+		scanf("%d", &n);
+	} while (n <= 0 || n > MAX);
+	
 	//Učitavanje matrice
 	for (i = 0; i < n; i++) {
 		for (j = 0; j < n; j++) {
