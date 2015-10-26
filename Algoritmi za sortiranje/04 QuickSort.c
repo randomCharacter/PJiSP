@@ -15,6 +15,7 @@ int main() {
 	int n;
 	int i, j;
 
+	//Učitavanje niza
 	do {
 		printf("Duzina niz [0<n<%d]: ", MAX);
 		scanf("%d", &n);
@@ -25,9 +26,10 @@ int main() {
 		scanf("%d", &A[i]);
 	}
 
-	//QuickSort(A, 0, n-1);
-
+	//Sortiranje niza
 	QuickSort(A, 0, n-1);
+
+	//Ispis sortiranog niza
 	printf("Sortiran niz:\n[");
 	for (i = 0; i < n - 1; i++) {
 		printf("%d, ", A[i]);
@@ -35,8 +37,7 @@ int main() {
 	printf("%d]\n", A[n - 1]);
 }
 
-void QuickSort(int niz[], int levi, int desni)
-{
+void QuickSort(int niz[], int levi, int desni) {
 	if (desni <= levi)
 		return;
 
@@ -44,16 +45,13 @@ void QuickSort(int niz[], int levi, int desni)
 	int i = levi;
 	int j = desni;
 
-	while (i <= j)
-	{
-		if (niz[i] < pivot)
-		{
+	while (i <= j) {
+		if (niz[i] < pivot)	{
 			i++;
 			continue;
 		}
 
-		if (niz[j] > pivot)
-		{
+		if (niz[j] > pivot)	{
 			j--;
 			continue;
 		}

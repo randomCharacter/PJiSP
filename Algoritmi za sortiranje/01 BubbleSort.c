@@ -16,6 +16,7 @@ int main() {
 	int n;
 	int i, j;
 
+	//Učitavanje niza
 	do {
 		printf("Duzina niz [0<n<%d]: ", MAX);
 		scanf("%d", &n);
@@ -26,8 +27,10 @@ int main() {
 		scanf("%d", &A[i]);
 	}
 
+	//Sortiranje niza
 	BubbleSort(A, n);
 
+	//Ispis sortiranog niza
 	printf("Sortiran niz:\n[");
 	for (i = 0; i < n - 1; i++) {
 		printf("%d, ", A[i]);
