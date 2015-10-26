@@ -1,5 +1,4 @@
-# PJISP
-# Algoritmi za sortiranje
+# PJISP - Algoritmi za sortiranje
 
 *KO NE VOLI FOLKLOR NEKA NE OTVARA LINKOVE* 
 
