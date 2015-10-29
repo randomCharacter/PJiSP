@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #define MAX 256
+
 int ctoi(char, double*);
 int atof(char*, double*);
 
@@ -40,7 +41,7 @@ int atof(char *s, double *f) {
 
     double l;
     int iza = 0; //1 ako je prošao decimalni zarez
-    double mnoz = 1;
+    double mnoz = 10;
     //Proverava da li string počinje sa minusom
     if (*s == '-') { 
         znak = -1;
@@ -58,9 +59,9 @@ int atof(char *s, double *f) {
                 if (!(iza)) { //Celobrojni deo broja
                     x *= mnoz;
                     x += l;
-                    mnoz *= 10;
+                    //mnoz *= 10;
                 }
-                if (iza) {  //ako je prosla tačke, decimalni deo broja
+                else if (iza) {  //ako je prosla tačke, decimalni deo broja
                     d *= 10;
                     x += l / d; 
                 }
