@@ -1,3 +1,17 @@
+/*
+*   Zadatak 08
+*   Napisati funkciju int atof(char *s, float *f) koja string s
+*   pretvara u realan broj i rezultat vraća u parametru f.
+*   Realan broj se definiše kao niz od jedne ili više cifara,
+*   nakon koje može biti tačka, nakon koje može biti još nula
+*   ili više cifara. Ukoliko string nije dobro formatiran (npr.
+*   sadrži dve tačke, zarez, slovo, itd) funkcija vraća 0. Inače,
+*   vraća 1. U glavnom programu od korisnika učitati dužinu
+*   stringa, pa i sam string, a zatim ga konvertovati u realan
+*   broj i ispisati rezultat. Ukoliko je prilikom konverzije došlo
+*   do greške (tj. ako string sadrži nedozvoljeni karakter),
+*   ispisati odgovarajuću poruku.
+*/
 #include <stdio.h>
 #include <string.h>
 #define MAX 256
@@ -12,9 +26,9 @@ int main() {
     printf("Unesite string:\n");
     scanf("%s", s);
 
-    if (atof(s, &br)) {
+    if (atof(s, &br)) { //ako je konverzija uspela
         printf("Vrednost stringa je: %lf\n", br);  
-    } else {
+    } else { //konverzija nije uspela, vraćamo grešku
         printf("Uneti string nije broj!!!\n");
     }
 
@@ -35,13 +49,13 @@ int ctoi(char c, double *x) {
 //Vraća 1 ako je konverzija uspešna, 0 ako nije
 int atof(char *s, double *f) {
     double x = 0; //Broj koji ćemo kasnije vratiti
-    double d = 1; 
+    double d = 1; //Decimala na koju upisujemo
 
-    int znak = 1; //-1 ako je broj negativan
+    int znak = 1; //-1 ako je broj negativan, 1 ako je pozitivan
 
     double l;
     int iza = 0; //1 ako je prošao decimalni zarez
-    double mnoz = 10;
+    
     //Proverava da li string počinje sa minusom
     if (*s == '-') { 
         znak = -1;
@@ -51,26 +65,25 @@ int atof(char *s, double *f) {
     while (*s) {
         if (*s == '.') {
             if (iza) {
-                return 0; //Drugi pronađen zarez, format nije dobar
+                return 0; //drugi pronađen zarez, format nije dobar
             }
-          iza++; //Pronašao je zarez
+          iza++; //pronašao je zarez
         } else {
-            if (ctoi(*s, &l)) { //Ako je karakter broj
-                if (!(iza)) { //Celobrojni deo broja
-                    x *= mnoz;
-                    x += l;
-                    //mnoz *= 10;
+            if (ctoi(*s, &l)) { //ako je karakter broj
+                if (!(iza)) { //celobrojni deo broja
+                    x *= 10; //prethodni deo broja pomeramo udesno
+                    x += l; //dodajemo novu cifru
                 }
                 else if (iza) {  //ako je prosla tačke, decimalni deo broja
-                    d *= 10;
-                    x += l / d; 
+                    d *= 10; //pomeramo na sledeću decimalu
+                    x += l / d; //dodajemo novu cifru
                 }
             } else { //ako je neki nedozvoljeni char
                 return 0; 
             }
         }
-            s++; //Prelaz na sledeće slovo
+            s++; //prelazak na sledeći karakter
     }
-    *f = x * znak;
+    *f = x * znak; //ukoliko je broj bio negaivan
     return 1;
 }
