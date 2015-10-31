@@ -8,7 +8,7 @@
 #include <stdio.h>
 #define MAX 50
 
-void QuickSort(int *niz, int levi, int desni);
+void QuickSort(int niz[], int levi, int desni);
 
 int main() {
 	int A[MAX];

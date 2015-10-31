@@ -9,7 +9,7 @@
 #define MAX 50
 
 
-int SelectionSort(int *niz, int duzina);
+int SelectionSort(int niz[], int duzina);
 
 int main() {
 	int A[MAX];
@@ -38,7 +38,7 @@ int main() {
 	printf("%d]\n", A[n - 1]);
 }
 
-int SelectionSort(int *niz, int duzina) {
+int SelectionSort(int niz[], int duzina) {
 	int i, j;
 
 	for (i = 0; i < duzina - 1; i++) {

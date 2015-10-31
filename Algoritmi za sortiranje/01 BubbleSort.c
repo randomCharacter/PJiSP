@@ -9,7 +9,7 @@
 #define MAX 50
 
 
-int BubbleSort(int *niz, int duzina);
+int BubbleSort(int niz[], int duzina);
 
 int main() {
 	int A[MAX];
@@ -38,10 +38,10 @@ int main() {
 	printf("%d]\n", A[n - 1]);
 }
 
-int BubbleSort(int *niz, int duzina) {
+int BubbleSort(int niz[], int duzina) {
 	int i, j;
 
-	for (i = 0; i < duzina - 1; i++) {
+	for (i = 0; i < duzina; i++) {
 		for (j = 0; j < i; j++) {
 			if (niz[j] > niz[j + 1]) {
 				int t = niz[j];

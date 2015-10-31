@@ -9,7 +9,7 @@
 #define MAX 50
 
 
-void ShellSort(int *niz, int duzina);
+void ShellSort(int niz[], int duzina);
 
 int main() {
 	int A[MAX];
@@ -38,7 +38,7 @@ int main() {
 	printf("%d]\n", A[n - 1]);
 }
 
-void ShellSort(int *niz, int duzina) {
+void ShellSort(int niz[], int duzina) {
 	int h, t;
 	int i, j;
 	for (h = duzina; h /= 2;) {
