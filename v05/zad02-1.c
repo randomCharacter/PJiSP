@@ -38,8 +38,8 @@ int palindrom(char *s) {
 	p = 1; //Pretpostavljamo da je string palindrom
 	n = strlen(s);
 
-	for (i = 0; i < n; i++) {
-		if (s[i] != s[n-i-1]) {
+	for (i = 0; i < n / 2; i++) { 
+		if (s[i] != s[n-i-1]) { 
 			p = 0; //našli smo kontra primer, tako da string nije palindrom
 		}
 		return p;
