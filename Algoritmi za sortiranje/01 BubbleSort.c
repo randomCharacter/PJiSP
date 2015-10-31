@@ -42,7 +42,7 @@ int BubbleSort(int niz[], int duzina) {
 	int i, j;
 
 	for (i = 0; i < duzina; i++) {
-		for (j = 0; j < i; j++) {
+		for (j = 0; j < duzina; j++) {
 			if (niz[j] > niz[j + 1]) {
 				int t = niz[j];
 				niz[j] = niz[j + 1];
