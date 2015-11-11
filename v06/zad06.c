@@ -5,8 +5,8 @@
 *	slovo iz ulazne datoteke pomera za jednu poziciju
 *	unapred, u alfabetu. Parametri ul_dat i izl_dat su nazivi
 *	ulazne, odn. izlazne datoteke.
-*
-*	• Napisati funkciju void dekodiraj(char *ul_dat, char
+
+**	• Napisati funkciju void dekodiraj(char *ul_dat, char
 *	*izl_dat) koja dekodira ulaznu datoteku tako što svako
 *	slovo iz ulazne datoteke pomera za jednu poziciju
 *	unazad, u alfabetu. Parametri ul_dat i izl_dat su nazivi
@@ -19,67 +19,79 @@
 #include <stdlib.h>
 #include <string.h>
 
-int isSmallChar(char ch);
-int isBigChar(char ch);
-void kodiraj(char *ul_dat, char *izl_dat);
-void dekodiraj(char *ul_dat, char *izl_dat);
+int isSmallChar(char);
+int isBigChar(char);
+void kodiraj(char*, char*);
+void dekodiraj(char*, char*);
 
 int main(int brArg, char *arg[]) {
+	//Ukoliko je korisnik uneo manje od 4 argumenta ispisuje se pomoć:
 	if (brArg < 4) {
-		exit(EXIT_FAILURE);
+		printf("Za kodiranje: -k ulaz izlaz\nZa dekodiranje: -d ulaz izlaz\n");
+		return 0;
 	}
-	if (strcmp(arg[1], "-k")) {
+	//Ukoliko želi da kodira fajl
+	if (strcmp(arg[1], "-k") == 0) {
 		kodiraj(arg[2], arg[3]);
+		printf("Kodiranje uspesno izvrseno!\n");
+	//Ukoliko želi da dekodira fajl
 	} else {
 		dekodiraj(arg[2], arg[3]);
+		printf("Dekodiranje uspesno zavrseno!\n");
 	}
 	return 0;
 }
 
+//Proverava da li je karakter malo slovo
 int isSmallChar(char ch) {
 	return (ch >= 'a' && ch <= 'z');
 }
 
+//Proverava da li je karakter veliko slovo
 int isBigChar(char ch) {
 	return (ch >= 'A' && ch <= 'Z');
 }
 
+//Kodira ulaznu datoteku i rezultat ispisuje u izlaznu
 void kodiraj(char *ul_dat, char *izl_dat) {
 	FILE *f;
 	FILE *g;
 	char ch;
-	f = fopen(ul_dat, "r");
-	g = fopen(izl_dat, "w");
+	f = fopen(ul_dat, "r"); //otvara za čitanje
+	g = fopen(izl_dat, "w"); //otvara za pisanje
 
 	while((ch = fgetc(f)) != EOF) {
-		if (isSmallChar(ch)) {
+		if (isSmallChar(ch)) { //kodira malo slovo
 			ch = (ch - 'a' + 1) % 26 + 'a';
-		} else if (isBigChar(ch)) {
+		} else if (isBigChar(ch)) { //kodira veliko slovo
 			ch = (ch - 'A' + 1) % 26 + 'A';
 		}
-		fputc(ch, g);
+		fputc(ch, g); //druge karaktere ne dira
 	}
 
+	//Zatvaranje fajlova nakon završenog rada sa njima
 	fclose(f);
 	fclose(g);
 }
 
+//Dekodira ulaznu datoteku i rezultat ispisuje u izlaznu
 void dekodiraj(char *ul_dat, char *izl_dat) {
 	FILE *f;
 	FILE *g;
 	char ch;
-	f = fopen(ul_dat, "r");
-	g = fopen(izl_dat, "w");
+	f = fopen(ul_dat, "r"); //otvara za čitanje
+	g = fopen(izl_dat, "w"); //otvara za pisanje
 
 	while((ch = fgetc(f)) != EOF) {
-		if (isSmallChar(ch)) {
-			ch = (ch - 'a' - 1) % 26 + 'a';
-		} else if (isBigChar(ch)) {
-			ch = (ch - 'A' - 1) % 26 + 'A';
+		if (isSmallChar(ch)) { //dekodira malo slovo
+			ch = (ch - 'a' - 1 + 26) % 26 + 'a';
+		} else if (isBigChar(ch)) { //dekodira veliko slovo
+			ch = (ch - 'A' - 1 + 26) % 26 + 'A';
 		}
-		fputc(ch, g);
+		fputc(ch, g); //druge karaktere ne dira
 	}
 
+	//Zatvaranje fajlova nakon završenog rada sa njima
 	fclose(f);
 	fclose(g);
 }
