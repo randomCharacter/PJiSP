@@ -19,3 +19,4 @@ void draw_files(char sec[][MAX_FILE_STR], int n, int sel);
 int run_files_menu(char sec[][MAX_FILE_STR], int n);
 
 #endif
+
