@@ -33,11 +33,9 @@ int main(int brArg, char *arg[]) {
 	//Ukoliko želi da kodira fajl
 	if (strcmp(arg[1], "-k") == 0) {
 		kodiraj(arg[2], arg[3]);
-		printf("Kodiranje uspesno izvrseno!\n");
 	//Ukoliko želi da dekodira fajl
 	} else {
 		dekodiraj(arg[2], arg[3]);
-		printf("Dekodiranje uspesno zavrseno!\n");
 	}
 	return 0;
 }
@@ -57,8 +55,15 @@ void kodiraj(char *ul_dat, char *izl_dat) {
 	FILE *f;
 	FILE *g;
 	char ch;
-	f = fopen(ul_dat, "r"); //otvara za čitanje
-	g = fopen(izl_dat, "w"); //otvara za pisanje
+
+	if ((f = fopen(ul_dat, "r")) == NULL) { //otvara za čitanje
+		printf("Fajl ne postoji!!!\n");
+		exit(EXIT_FAILURE); //vraća grešku ako fajlne postoji
+	} 
+	if ((g = fopen(izl_dat, "w")) == NULL) { //otvara za pisanje
+		printf("Nije moguće kreirati fajl!!!\n");
+		exit(EXIT_FAILURE); //vraća grešku ako ne uspe na kreira fajl
+	} 
 
 	while((ch = fgetc(f)) != EOF) {
 		if (isSmallChar(ch)) { //kodira malo slovo
@@ -79,7 +84,11 @@ void dekodiraj(char *ul_dat, char *izl_dat) {
 	FILE *f;
 	FILE *g;
 	char ch;
-	f = fopen(ul_dat, "r"); //otvara za čitanje
+
+	if ((f = fopen(ul_dat, "r")) == NULL) { //otvara za čitanje
+		printf("Fajl ne postoji!!!\n");
+		exit(EXIT_FAILURE); //vraća grešku ako fajlne postoji
+	} 
 	g = fopen(izl_dat, "w"); //otvara za pisanje
 
 	while((ch = fgetc(f)) != EOF) {
