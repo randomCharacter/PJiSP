@@ -109,7 +109,7 @@ student Najnizi(student s[], int n) {
 
 //Ispisuje podatke o studentu u fajl
 void Ispisi(student s, char *file) {
-	FILE *fč
+	FILE *f;
 	if ((f = fopen(file, "w")) == NULL) {
 		printf("Greska pri pokusaju kreiranja fajla %s\n", file);
 		exit(EXIT_FAILURE);
