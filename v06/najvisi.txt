@@ -1,0 +1,3 @@
+INDEX: 123148
+IME  : Imenko
+OCENA: 10.00
