@@ -87,7 +87,7 @@ void dekodiraj(char *ul_dat, char *izl_dat) {
 
 	if ((f = fopen(ul_dat, "r")) == NULL) { //otvara za čitanje
 		printf("Fajl ne postoji!!!\n");
-		exit(EXIT_FAILURE); //vraća grešku ako fajlne postoji
+		exit(EXIT_FAILURE); //vraća grešku ako fajl ne postoji
 	} 
 	g = fopen(izl_dat, "w"); //otvara za pisanje
 
