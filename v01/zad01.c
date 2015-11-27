@@ -11,6 +11,8 @@ int main() {
 	double a = 2.0;
 	double b = 4.0;
 	double c = 5.0;
+	double s; //poluobim
+	double P; //površina
 
 	//Računanje poluobima
 	s = (a + b + c) / 2;
