@@ -12,11 +12,12 @@ int main (int argc, char *argv[], char* envp[]) {
 	char command[MAX_COMMAND];
 	menu_setup(path);
 
-	strcpy(command, "gcc -lm ");
+	strcpy(command, "gcc ");
 	strcat(command, path);
 	strcat(command, " -o ");
 	path[strlen(path)-2]=0;
 	strcat(command, path);
+	strcat(command, " -lm");
 
 	printf("Compiling %s\n", command);
 	system(command);
