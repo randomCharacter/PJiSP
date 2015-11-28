@@ -4,7 +4,7 @@
 
 #include "menu.h"
 
-void menu_setup(char path[]) {
+int menu_setup(char path[]) {
 	initscr();
 	cbreak();
 	keypad(stdscr, TRUE);
@@ -12,26 +12,29 @@ void menu_setup(char path[]) {
 	curs_set(FALSE);
 	clear();
 
-	menu(path);
+	int compile_only=menu(path);
 	
 	endwin();
+	return compile_only;
 }
 
-void menu(char path[]) {
+int menu(char path[]) {
 	char sec[MAX_SECTIONS][MAX_SECTION_STR];
 	char fil[MAX_FILES][MAX_FILE_STR];
 	char sec_dir[MAX_FILE_STR];
 	int n;
 	int sel=0;
+	int compile_only=0;
 
 	do {
+		clear();
 		n=read_sections(sec);
 		sort_sections_strings(sec, n);
 
 		sel=run_sections_menu(sec, n);
 		if(sel==-1) {
 			endwin();
-			return;
+			return compile_only;
 		}
 
 		clear();
@@ -41,7 +44,7 @@ void menu(char path[]) {
 
 		n=read_files(fil, sec_dir);
 		sort_files_strings(fil, n);
-		sel=run_files_menu(fil,n);
+		sel=run_files_menu(fil,n, &compile_only);
 	} while(sel==-1);
 
 	//char file[MAX_SECTION_STR+MAX_FILE_STR];
@@ -52,6 +55,7 @@ void menu(char path[]) {
 	mvprintw(1,1, "Selected file: %s", path);
 	refresh();
 	//while(1);
+	return compile_only;
 }
 
 int read_sections(char sec[][MAX_SECTION_STR]) {
@@ -93,7 +97,7 @@ void draw_sections(char sec[][MAX_SECTION_STR], int n, int selected) {
 		mvprintw(y++, x, "%s", sec[i]);
 		attroff(A_STANDOUT);
 	}
-	
+	mvprintw(++y, x, "q za izlazak");
 	refresh();
 }
 
@@ -102,7 +106,7 @@ int run_sections_menu(char sec[][MAX_SECTION_STR], int max_sel) {
 
 	do {
 		draw_sections(sec, max_sel, sel);
-		refresh();
+		//refresh();
 		int c=getch();
 
 		if(c == KEY_UP && sel > 0) {
@@ -157,26 +161,30 @@ void draw_files(char fil[][MAX_FILE_STR], int n, int selected) {
 		mvprintw(y++, x, "%s", fil[i]);
 		attroff(A_STANDOUT);
 	}
-	
+	mvprintw(++y, x, "c za kompajliranje fajla, bez pokretanja");
+	mvprintw(++y, x, "q za nazad");
 	refresh();
 }
 
-int run_files_menu(char fil[][MAX_FILE_STR], int max_sel) {
+int run_files_menu(char fil[][MAX_FILE_STR], int max_sel, int *compile_only) {
 	int sel=0, back=0;
 
 	do {
 		draw_files(fil, max_sel, sel);
-		refresh();
+		//refresh();
 		int c=getch();
 
 		if(c == KEY_UP && sel > 0) {
 			sel--;
-		} else if(c==KEY_DOWN && sel < max_sel-1) {
+		} else if(c == KEY_DOWN && sel < max_sel-1) {
 			sel++;
-		} else if(c==10) {
+		} else if(c == 10) {
 			return sel;
-		} else if(c=='q') {
+		} else if(c == 'q') {
 			back=1;
+		} else if(c == 'c') {
+			*compile_only=1;
+			return sel;
 		}
 	} while(back == 0);
 	return -1;
