@@ -4,28 +4,34 @@
 
 #include "menu.h"
 
-#define MAX_PATH 30
+#define MAX_FILE 30
 #define MAX_COMMAND 70
 
 int main (int argc, char *argv[], char* envp[]) {
-	char path[MAX_PATH];
+	char file[MAX_FILE];
 	char command[MAX_COMMAND];
-	menu_setup(path);
+	char remove_command[MAX_FILE];
+	int compile_only=menu_setup(file);
 
 	strcpy(command, "gcc ");
-	strcat(command, path);
+	strcat(command, file);
 	strcat(command, " -o ");
-	path[strlen(path)-2]=0;
-	strcat(command, path);
+	file[strlen(file)-2]=0;
+	strcat(command, file);
 	strcat(command, " -lm");
 
 	printf("Compiling %s\n", command);
 	system(command);
+	
+	if(compile_only==0) {
+		printf("Running %s\n", file);
+		system(file);
 
-	printf("Running %s\n", path);
-	system(path);
-
-	printf("\n");
+		strcpy(remove_command, "rm ");
+		printf("Removing executable\n");
+		system(strcat(remove_command, file));
+	}
+	
 	return 0;
 }
 

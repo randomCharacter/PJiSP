@@ -13,6 +13,7 @@ ifeq ($(UNAME_R),*ARCH)
 else
 	$(CC) $(CFLAGS) -o $(TARGET) main.o menu.o $(LIBPATH) $(LIBS)
 endif
+	$(RM) *.o
 
 menu.o: menu.c menu.h
 	$(CC) $(CFLAGS) -c menu.c
