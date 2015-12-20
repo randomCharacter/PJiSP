@@ -34,13 +34,13 @@ int main(int brArg, char *arg[]) {
 	FILE *f;
 	double prOc; //prosečna ocena svih studenata
 
-	//Ukoliko je korisnik uneo manje od 4 argumenta ispisuje se pomoć:
+	//Ukoliko je korisnik uneo manje od 2 argumenta ispisuje se pomoć:
 	if (brArg < 2) {
 		printf("Kao argument pozivanja programa unesite ime fajla u kojem se nalaze podaci o studentima.\n");
 		return 0;
 	}
 
-	
+
 	if ((f = fopen(arg[1], "r")) == NULL) { //otvaranje fajla za čitanje
 		printf("Fajl ne postoji!!!\n");
 		exit(EXIT_FAILURE); //prekid rada ukoliko fajl ne postoji
@@ -72,7 +72,7 @@ void Ucitaj(student s[], FILE *f, int *n) {
 //Vraća studenta sa najvišom ocenom iz niza
 student Najvisi(student s[], int n) {
 	int i;
-	double max; 
+	double max;
 	int maxI;
 	max = s[0].ocena;
 	maxI = 0;
