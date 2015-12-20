@@ -32,6 +32,7 @@ int main() {
 	int op1, op2, res;
 
 	//Učitavanje komandi
+	printf("Unesite komandu u obrnutoj poljskoj notaciji:\n");
 	scanf("%s", op);
 	n = strlen(op);
 
@@ -68,10 +69,10 @@ int main() {
 					push(res, &stek);
 					break;
 			}
+		}
 	}
-
 	//Ispis rezultata
-	printf("Rezultat je: %d\n", pop(&stek)); 
+	printf("Rezultat operacija je: %d\n", pop(&stek));
 
 	return 0;
 }
