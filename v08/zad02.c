@@ -13,7 +13,7 @@ int main() {
 	printf("Unesite n: ");
 	scanf("%d", &n);
 
-	s = suma(n);//poziv rekurzivne funkcije
+	s = suma(n); //poziv rekurzivne funkcije
 	printf("%d\n", s);
 
 	return 0;

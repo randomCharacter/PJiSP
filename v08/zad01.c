@@ -11,13 +11,14 @@ int fib(int n);
 
 int main() {
 	int n;
+	int f;
 
 	do {
 		printf("Unesite n [n>0]: ");
 		scanf("%d", &n);
 	} while (n <= 0);
 
-	int f = fib(n); //
+	f = fib(n); //poziv rekurzivne funkcije
 	printf("%d-ti clan fibonacijevog niza je: %d\n", n, fib(n));
 	
 	return 0;
@@ -25,7 +26,7 @@ int main() {
 
 //Računa n-ti član fibonačijevog niza
 int fib(int n) {
-	if (n == 1 || n == 2) { 
+	if (n == 1 || n == 2) { //trivijalni slučaj
 		return 1; //prva dva člana su 1
 	} else {
 		//Rekurzivni poziv
