@@ -61,6 +61,7 @@ void binIspis(int n) {
 	}
 }
 
+//Ispis u heksadekadnom obliku
 void hexIspis(int n) {
-    printf("0x%x", n);
+    printf("0x%x", n); //%x ispisuje integer u heksadekadnom obliku
 }
