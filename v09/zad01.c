@@ -1,11 +1,11 @@
 /*
 *	Zadatak 01
-*	Napisati funkciju void ispis(BCVOR *koren) 
+*	Napisati funkciju void ispis(BCVOR *koren)
 *	koja rekurzivno ispisuje sadržaj stabla
-*	a) 	prvo ispisati sadržaj čvora a zatim njegovih 
+*	a) 	prvo ispisati sadržaj čvora a zatim njegovih
 *		podčvorova sa leva na desno
-*	b)	prvo ispisujemo sadržaj levog podstabla, zatim 
-*		samog čvora i na kraju desnog podstabla 
+*	b)	prvo ispisujemo sadržaj levog podstabla, zatim
+*		samog čvora i na kraju desnog podstabla
 *		(obilazak sa leva na desno)
 *	c)	obilazak sa desna na levo
 */
@@ -46,7 +46,7 @@ int main() {
 	t->desni = (BCVOR*) malloc(sizeof(BCVOR));
 	t->levi->inf = 4; //levi deo desnog dela
 	t->desni->inf = 1;
-	printf("%s%s%s%s%s", 
+	printf("%s%s%s%s%s",
 	"     3       \n",
 	"    / \\     \n",
 	"   4   5     \n",
@@ -86,7 +86,7 @@ void ispisB(BCVOR *koren) {
 void ispisC(BCVOR * koren) {
 	if (koren != NULL) {
 		ispisC(koren->desni);
-		ispisC(koren->levi);
 		printf("%d ", koren->inf);
+		ispisC(koren->levi);
 	}
 }
