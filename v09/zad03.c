@@ -156,6 +156,7 @@ float max(BCVOR *koren) {
 	}
 }
 
+//Vraća dubinu stabla
 int dubina(BCVOR *koren) {
 	if (koren) {
 		return 1 + max2(dubina(koren->levi), dubina(koren->desni)); //ako postoji element povećava broj koji je našao u podstablima za 1
@@ -164,6 +165,7 @@ int dubina(BCVOR *koren) {
 	}
 }
 
+//Vraća broj elemenata na datom nivou
 int brElemNivo(int nivo, BCVOR *koren) {
 	if (koren) {
 		if (nivo == 1) { //ako je na pravom nivou

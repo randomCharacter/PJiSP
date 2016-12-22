@@ -45,16 +45,21 @@ automobil max(automobil a, automobil b);
 
 //Testiranje funkcija
 int main() {
+	//Kreiranje praznog stabla
 	BCVOR *p = NULL;
 
+	//Učitavanje stabla iz fajla
 	FILE *ulaz = safe_open("automobili.txt", "r", 1);
 	ucitaj(ulaz, &p);
 
+	//Ispis svih automobila marke "Fiat"
 	ispisMarka(p, "Fiat");
 
+	//Ispis stabla u fajl
 	FILE *izlaz = safe_open("izlaz.txt", "w", 2);
 	ispisDatoteka(izlaz, p);
 
+	//Ispis najnovijeg automobila sa zadatom kubikažom
 	int kub;
 	printf("Unesite maksimalnu kubikazu: ");
 	scanf("%d", &kub);
@@ -73,8 +78,8 @@ int main() {
 //Otvara fajl, ukoliko ne uspe izlazi iz programa sa greškom koja je prosleđena
 FILE* safe_open(char *ime, char *mod, int greska) {
 	FILE *f = fopen(ime, mod);
-	if (f == NULL) { //ako fajl nije uspešno otvoren
-		exit(greska); //izlaz iz programa
+	if (f == NULL) {
+		exit(greska);
 	}
 	return f;
 }
