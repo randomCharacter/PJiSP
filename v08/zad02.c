@@ -1,6 +1,7 @@
 /*
-*Napisati rekurzivnu funkciju kojom se izračunava suma
-cifara dekadnog broja n.
+*	Zadatak 02
+*	Napisati rekurzivnu funkciju kojom se izračunava suma
+*	cifara dekadnog broja n.
 */
 #include <stdio.h>
 
