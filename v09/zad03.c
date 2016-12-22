@@ -25,12 +25,12 @@ typedef struct cvor_st {
 	struct cvor_st *levi;
 } BCVOR;
 
-float suma(BCVOR *koren);//
-int brElem(BCVOR *koren);//
-void ispis(BCVOR *koren);//
-void ispisList(BCVOR *koren);//
-int uStablu(float elem, BCVOR *koren);//
-float max(BCVOR *koren);//
+float suma(BCVOR *koren);
+int brElem(BCVOR *koren);
+void ispis(BCVOR *koren);
+void ispisList(BCVOR *koren);
+int uStablu(float elem, BCVOR *koren);
+float max(BCVOR *koren);
 BCVOR* maxPok(BCVOR *koren);
 int dubina(BCVOR *koren);
 int brElemNivo(int nivo, BCVOR *koren);
