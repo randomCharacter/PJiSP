@@ -4,6 +4,7 @@
 *	cifara dekadnog broja n.
 */
 #include <stdio.h>
+#include <stdlib.h>
 
 int suma(int n);
 
@@ -14,7 +15,7 @@ int main() {
 	printf("Unesite n: ");
 	scanf("%d", &n);
 
-	s = suma(n); //poziv rekurzivne funkcije
+	s = abs(suma(n)); //poziv rekurzivne funkcije(ako unesemo negativan broj zbir ce biti negativan pa se uzima abs)
 	printf("%d\n", s);
 
 	return 0;
